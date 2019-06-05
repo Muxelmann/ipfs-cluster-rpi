@@ -55,7 +55,7 @@ ipsvc_version="v${ipsvc_version#v}"
 
 echo ">>> Installing IPFS Cluster Service version $ipsvc_version"
 
-tar_gz_destination=/tmp/go-ipfs_${ipsvc_version}_${ipsvc_arch}.tar.gz
+tar_gz_destination=/tmp/ipfs-cluster-service_${ipsvc_version}_${ipsvc_arch}.tar.gz
 wget "https://dist.ipfs.io/ipfs-cluster-service/${ipsvc_version}/ipfs-cluster-service_${ipsvc_version}_${ipsvc_arch}.tar.gz" \
   -q --show-progress \
   -O $tar_gz_destination
@@ -77,7 +77,7 @@ ipctl_version="v${ipctl_version#v}"
 
 echo ">>> Installing IPFS Cluster Ctl version $ipctl_version"
 
-tar_gz_destination=/tmp/go-ipfs_${ipctl_version}_${ipctl_arch}.tar.gz
+tar_gz_destination=/tmp/ipfs-cluster-ctl_${ipctl_version}_${ipctl_arch}.tar.gz
 wget "https://dist.ipfs.io/ipfs-cluster-service/${ipctl_version}/ipfs-cluster-service_${ipctl_version}_${ipctl_arch}.tar.gz" \
   -q --show-progress \
   -O $tar_gz_destination
