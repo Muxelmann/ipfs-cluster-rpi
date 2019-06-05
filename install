@@ -87,7 +87,7 @@ if [ ! -f $ipctl_tar_gz_destination ]; then
   exit 1
 fi
 
-ipfs_destination=/usr/local/bin/ipfs-cluster-ctl
+ipctl_destination=/usr/local/bin/ipfs-cluster-ctl
 tar xzf $ipctl_tar_gz_destination -C /tmp
 sudo install /tmp/ipfs-cluster-ctl/ipfs-cluster-ctl $ipctl_destination
 
