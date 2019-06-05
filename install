@@ -33,18 +33,18 @@ ipfs_version="v${ipfs_version#v}"
 
 echo ">>> Installing IPFS version $ipfs_version"
 
-tar_gz_destination=/tmp/go-ipfs_${ipfs_version}_${ipfs_arch}.tar.gz
+ipfs_tar_gz_destination=/tmp/go-ipfs_${ipfs_version}_${ipfs_arch}.tar.gz
 wget "https://dist.ipfs.io/go-ipfs/${ipfs_version}/go-ipfs_${ipfs_version}_${ipfs_arch}.tar.gz" \
   -q --show-progress \
-  -O $tar_gz_destination
+  -O $ipfs_tar_gz_destination
 
-if [ ! -f $tar_gz_destination ]; then
+if [ ! -f $ipfs_tar_gz_destination ]; then
   echo ">>> Failed to download IPFS"
   exit 1
 fi
 
 ipfs_destination=/usr/local/bin/ipfs
-tar xzf $tar_gz_destination -C /tmp
+tar xzf $ipfs_tar_gz_destination -C /tmp
 sudo install /tmp/go-ipfs/ipfs $ipfs_destination
 
 # Download and install IPFS Cluster Service
@@ -55,18 +55,18 @@ ipsvc_version="v${ipsvc_version#v}"
 
 echo ">>> Installing IPFS Cluster Service version $ipsvc_version"
 
-tar_gz_destination=/tmp/ipfs-cluster-service_${ipsvc_version}_${ipsvc_arch}.tar.gz
+ipsvc_tar_gz_destination=/tmp/ipfs-cluster-service_${ipsvc_version}_${ipsvc_arch}.tar.gz
 wget "https://dist.ipfs.io/ipfs-cluster-service/${ipsvc_version}/ipfs-cluster-service_${ipsvc_version}_${ipsvc_arch}.tar.gz" \
   -q --show-progress \
-  -O $tar_gz_destination
+  -O $ipsvc_tar_gz_destination
 
-if [ ! -f $tar_gz_destination ]; then
+if [ ! -f $ipsvc_tar_gz_destination ]; then
   echo ">>> Failed to download IPFS Cluster Service"
   exit 1
 fi
 
 ipsvc_destination=/usr/local/bin/ipfs-cluster-service
-tar xzf $tar_gz_destination -C /tmp
+tar xzf $ipsvc_tar_gz_destination -C /tmp
 sudo install /tmp/ipfs-cluster-service/ipfs-cluster-service $ipfs_destination
 
 # Download and install IPFS Cluster Ctl
@@ -77,18 +77,18 @@ ipctl_version="v${ipctl_version#v}"
 
 echo ">>> Installing IPFS Cluster Ctl version $ipctl_version"
 
-tar_gz_destination=/tmp/ipfs-cluster-ctl_${ipctl_version}_${ipctl_arch}.tar.gz
+ipctl_tar_gz_destination=/tmp/ipfs-cluster-ctl_${ipctl_version}_${ipctl_arch}.tar.gz
 wget "https://dist.ipfs.io/ipfs-cluster-service/${ipctl_version}/ipfs-cluster-service_${ipctl_version}_${ipctl_arch}.tar.gz" \
   -q --show-progress \
-  -O $tar_gz_destination
+  -O $ipctl_tar_gz_destination
 
-if [ ! -f $tar_gz_destination ]; then
+if [ ! -f $ipctl_tar_gz_destination ]; then
   echo ">>> Failed to download IPFS Cluster Ctl"
   exit 1
 fi
 
 ipfs_destination=/usr/local/bin/ipfs-cluster-ctl
-tar xzf $tar_gz_destination -C /tmp
+tar xzf $ipctl_tar_gz_destination -C /tmp
 sudo install /tmp/ipfs-cluster-ctl/ipfs-cluster-ctl $ipfs_destination
 
 echo ">>> Starting IPFS"
@@ -132,6 +132,8 @@ else
   echo ">>> Unable to detect init system - you don't seem to be using systemd or upstart. The IPFS daemon will have to be controlled manually."
 fi
 
-rm $tar_gz_destination
+rm $ipfs_tar_gz_destination
+rm $ipsvc_tar_gz_destination
+rm $ipctl_tar_gz_destination
 
 echo ">>> All done."
