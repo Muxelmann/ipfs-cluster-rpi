@@ -78,7 +78,7 @@ ipctl_version="v${ipctl_version#v}"
 echo ">>> Installing IPFS Cluster Ctl version $ipctl_version"
 
 ipctl_tar_gz_destination=/tmp/ipfs-cluster-ctl_${ipctl_version}_${ipctl_arch}.tar.gz
-wget "https://dist.ipfs.io/ipfs-cluster-service/${ipctl_version}/ipfs-cluster-service_${ipctl_version}_${ipctl_arch}.tar.gz" \
+wget "https://dist.ipfs.io/ipfs-cluster-ctl/${ipctl_version}/ipfs-cluster-ctl_${ipctl_version}_${ipctl_arch}.tar.gz" \
   -q --show-progress \
   -O $ipctl_tar_gz_destination
 
