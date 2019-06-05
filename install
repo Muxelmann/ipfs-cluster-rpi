@@ -67,7 +67,7 @@ fi
 
 ipsvc_destination=/usr/local/bin/ipfs-cluster-service
 tar xzf $ipsvc_tar_gz_destination -C /tmp
-sudo install /tmp/ipfs-cluster-service/ipfs-cluster-service $ipfs_destination
+sudo install /tmp/ipfs-cluster-service/ipfs-cluster-service $ipsvc_destination
 
 # Download and install IPFS Cluster Ctl
 ipctl_arch=${2-"linux-arm"}
@@ -89,7 +89,7 @@ fi
 
 ipfs_destination=/usr/local/bin/ipfs-cluster-ctl
 tar xzf $ipctl_tar_gz_destination -C /tmp
-sudo install /tmp/ipfs-cluster-ctl/ipfs-cluster-ctl $ipfs_destination
+sudo install /tmp/ipfs-cluster-ctl/ipfs-cluster-ctl $ipctl_destination
 
 echo ">>> Starting IPFS"
 
